@@ -1,24 +1,20 @@
 package ru.spring.alichev.models;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Person {
-
     private int id;
-    @NotNull(message = "Name should be not empty")
-    @Size(min = 5, max = 50, message = "Name should be between 5 and 50 characters")
-    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+",
-            message = "Your full name should be in this form: Name, Last name")
+
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
     private String fullName;
 
-/*    @NotNull(message = "Year of Birth should be not empty")*/
-    @Min(value = 1900, message = "Age should be greater than 0")
+    @Min(value = 1900, message = "Год рождения должен быть больше, чем 1900")
     private int yearOfBirth;
 
+    // Конструктор по умолчанию нужен для Spring
     public Person() {
+
     }
 
     public Person(String fullName, int yearOfBirth) {

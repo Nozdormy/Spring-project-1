@@ -5,18 +5,19 @@
     <title>New person</title>
 </head>
 <body>
+
 <form th:method="POST" th:action="@{/books}" th:object="${book}">
-    <label for="bookName">Введите название книги: </label>
-    <input type="text" th:field="*{bookName}" id="bookName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">Title Error</div>
+    <label for="title">Введите название книги: </label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
     <br/>
-    <label for="authorBook">Введите автора: </label>
-    <input type="text" th:field="*{authorBook}" id="authorBook"/>
-    <div style="color:red" th:if="${#fields.hasErrors('authorBook')}" th:errors="*{authorBook}">Author Error</div>
+    <label for="author">Введите автора: </label>
+    <input type="text" th:field="*{author}" id="author"/>
+    <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
     <br/>
-    <label for="yearOfIssue">Введите год: </label>
-    <input type="text" th:field="*{yearOfIssue}" id="yearOfIssue"/>
-    <div style="color:red" th:if="${#fields.hasErrors('yearOfIssue')}" th:errors="*{yearOfIssue}">Year Error</div>
+    <label for="year">Введите год: </label>
+    <input type="text" th:field="*{year}" id="year"/>
+    <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year Error</div>
     <br/>
     <input type="submit" value="Создать!"/>
 </form>

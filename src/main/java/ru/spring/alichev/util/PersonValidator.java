@@ -9,6 +9,7 @@ import ru.spring.alichev.models.Person;
 
 @Component
 public class PersonValidator implements Validator {
+
     private final PersonDAO personDAO;
 
     @Autowired
@@ -17,16 +18,15 @@ public class PersonValidator implements Validator {
     }
 
     @Override
-    public boolean supports(Class<?> clazz) {
-        return Person.class.equals(clazz);
+    public boolean supports(Class<?> aClass) {
+        return Person.class.equals(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if(personDAO.getPersonByFullName(person.getFullName()).isPresent()) {
-            errors.rejectValue("fullName", "", "This name is already exist");
-        }
+        if (personDAO.getPersonByFullName(person.getFullName()).isPresent())
+            errors.rejectValue("fullName", "", "Человек с таким ФИО уже существует");
     }
 }

@@ -18,7 +18,7 @@
     <b>Книги:</b>
     <br/>
     <table th:each="book : ${books}">
-        <tr th:text="${book.getBookName() + ', ' + book.getAuthorBook() + ', ' + book.getYearOfIssue()}">book</tr>
+        <tr th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">book</tr>
     </table>
     <hr/>
 </div>
@@ -30,5 +30,6 @@
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="Удалить"/>
 </form>
+
 </body>
 </html>
